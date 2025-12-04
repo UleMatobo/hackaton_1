@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 23 14:12:44 2025
-
-@author: Bacar
-"""
 
 import streamlit as st
 from PIL import Image
@@ -17,7 +12,7 @@ st.set_page_config(
 )
 
 # Chargement du logo
-logo = Image.open('assets/efrei_logo.png')  # Assure-toi que l'image est dans assets/
+logo = Image.open('assets/efrei_logo.png')  
 
 # Style personnalisé clair
 st.markdown("""
@@ -50,8 +45,8 @@ st.markdown("<div class='intro-box'>", unsafe_allow_html=True)
 st.markdown("## 🧠 AI for Impact – Détection de la Cataracte")
 st.markdown("### Hackathon EFREI 2025")
 st.markdown("""
-Bienvenue sur notre projet de hackathon visant à développer une solution de détection automatique de la cataracte à partir d’images ophtalmiques.  
-Nous combinons Deep Learning, Analyse de données et Visualisation interactive pour avoir un impact concret dans le domaine médical.
+Bienvenue sur mon projet de hackathon visant à développer une solution de détection automatique de la cataracte à partir d’images ophtalmiques.  
+Je combine Deep Learning, Analyse de données et Visualisation interactive pour avoir un impact concret dans ce projet.
 <br><br>
 La cataracte est une des principales causes de cécité dans le monde. Le diagnostic rapide et précis de la cataracte est crucial pour 
 la gestion et le traitement.
@@ -61,17 +56,12 @@ Ce projet vise à automatiser le diagnostic à l'aide de l'intelligence artifici
 """, unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Membres de l'équipe
-#cols = st.columns(4)
-#for col, name in zip(cols, ["Bacar ABDOURAHIM"]):
-    #col.markdown(f"<div class='team-member'>{name}</div>", unsafe_allow_html=True)
-
 
 
 import tensorflow as tf
 import numpy as np
 
-st.markdown("## 🔍 Testez votre image")
+st.markdown("## Testez votre image")
 
 uploaded_file = st.file_uploader("Choisissez une image de l'œil", type=["jpg", "jpeg", "png"])
 
@@ -89,7 +79,7 @@ if uploaded_file is not None:
         img = np.array(img) / 255.0
         img = np.expand_dims(img, axis=0)
 
-        # Charger le modèle
+        # Charger le modèle 
         model = tf.keras.models.load_model("model_cnn.h5")
 
         # Prédiction
@@ -105,5 +95,5 @@ if uploaded_file is not None:
 
 # Footer
 st.markdown("---")
-st.markdown("<div style='text-align:center;'>Projet réalisé dans le cadre du Hackathon 2025 – EFREI Paris</div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align:center;'>Projet réalisé dans le cadre d'un projet académique 2025 – EFREI Paris</div>", unsafe_allow_html=True)
 
